@@ -3236,7 +3236,7 @@ input, select, textarea {
 			background-color: #212931;
 			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/Euclid_Deep_Field_Fornax_preview.jpg");
 			background-size: auto,auto,	cover;
-			background-position: center,center,top center;
+			background-position: center,center,center;
 			background-repeat: repeat,no-repeat,no-repeat;
 			background-attachment: scroll,scroll,scroll;
 			z-index: -1;
