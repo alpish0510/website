@@ -4687,3 +4687,5 @@ input, select, textarea {
 		}
 
 	}
+figure.image.main.with-bottom-caption { margin: 0; }
+figure.image.main.with-bottom-caption figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center; }
