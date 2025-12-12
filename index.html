@@ -90,57 +90,62 @@
 								btn.addEventListener("click", function(e) {
 									e.preventDefault();
 
-									let targetHeight = box.scrollHeight; // total height of content
+									const targetHeight = box.scrollHeight; // full content height
+									const duration = 500; // total animation duration in ms
+									const fps = 60; // frames per second
+									const step = targetHeight / (duration / (1000 / fps));
 
 									if (!isOpen) {
 										// Expand
 										let currentHeight = 0;
-										let currentOpacity = 0;
+										let startTime = null;
 
-										function expand() {
-											currentHeight += 20;       // adjust speed
-											currentOpacity += 0.04;    // adjust fade speed
+										function expand(timestamp) {
+											if (!startTime) startTime = timestamp;
+											const elapsed = timestamp - startTime;
 
-											if (currentHeight > targetHeight) currentHeight = targetHeight;
-											if (currentOpacity > 1) currentOpacity = 1;
+											// Compute fraction of animation completed
+											let fraction = elapsed / duration;
+											if (fraction > 1) fraction = 1;
 
-											box.style.height = currentHeight + "px";
-											box.style.opacity = currentOpacity;
+											box.style.height = targetHeight * fraction + "px";
+											box.style.opacity = fraction;
 
-											if (currentHeight < targetHeight) {
+											if (fraction < 1) {
 												requestAnimationFrame(expand);
 											} else {
 												box.style.height = "auto"; // let it resize naturally
 											}
 										}
 
-										expand();
+										requestAnimationFrame(expand);
 									} else {
 										// Collapse
-										let currentHeight = box.scrollHeight;
-										let currentOpacity = 1;
+										let startHeight = box.scrollHeight;
+										let startTime = null;
 
-										function collapse() {
-											currentHeight -= 20;
-											currentOpacity -= 0.04;
+										function collapse(timestamp) {
+											if (!startTime) startTime = timestamp;
+											const elapsed = timestamp - startTime;
 
-											if (currentHeight < 0) currentHeight = 0;
-											if (currentOpacity < 0) currentOpacity = 0;
+											let fraction = elapsed / duration;
+											if (fraction > 1) fraction = 1;
 
-											box.style.height = currentHeight + "px";
-											box.style.opacity = currentOpacity;
+											box.style.height = startHeight * (1 - fraction) + "px";
+											box.style.opacity = 1 - fraction;
 
-											if (currentHeight > 0) {
+											if (fraction < 1) {
 												requestAnimationFrame(collapse);
 											}
 										}
 
-										collapse();
+										requestAnimationFrame(collapse);
 									}
 
 									isOpen = !isOpen;
 								});
 								</script>
+
 
 
 							</article>
