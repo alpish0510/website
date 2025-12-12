@@ -71,8 +71,22 @@
 								</header>
 								<!-- <a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a> -->
 								<ul class="actions special">
-									<li><a href="#" class="button large">My Research</a></li>
+									<li><a href="#" class="button large" id="showResearch">My Research</a></li>
 								</ul>
+
+								<div id="researchText" style="display:none; margin-top:20px;">
+									<p>
+										Your expanded research text goes here...
+									</p>
+								</div>
+
+								<script>
+									document.getElementById("showResearch").addEventListener("click", function(e){
+										e.preventDefault();
+										const section = document.getElementById("researchText");
+										section.style.display = section.style.display === "none" ? "block" : "none";
+									});
+								</script>
 							</article>
 
 						<!-- Posts -->
