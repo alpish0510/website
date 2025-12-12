@@ -129,25 +129,41 @@
 							</p>
 						</section>
 					</div>
-					<!-- Add ScrollReveal library -->
-					<script src="https://unpkg.com/scrollreveal"></script>
-
-					<!-- Animation setup -->
 					<script>
-					// Basic reveal options you can adjust
-					const revealConfig = {
-						distance: '50px',    // how far elements travel
-						origin: 'bottom',    // direction from which elements appear
-						opacity: 0,          // start fully transparent
-						duration: 800,       // animation time in ms
-						easing: 'ease-in-out',
-						interval: 200,       // stagger reveals if multiple elements match selector
-						reset: false         // whether animation repeats on scroll back
-					};
+					// Select all your sections
+					const sections = document.querySelectorAll(".life-section");
 
-					// Reveal each section one after another as they enter view
-					ScrollReveal().reveal('.life-section', revealConfig);
+					// Create intersection observer
+					const observer = new IntersectionObserver((entries, obs) => {
+					entries.forEach((entry, index) => {
+						if (entry.isIntersecting) {
+						
+						// Apply animation using Web Animations API
+						entry.target.animate(
+							[
+							{ opacity: 0, transform: "translateY(30px)" },
+							{ opacity: 1, transform: "translateY(0)" }
+							],
+							{
+							duration: 800,
+							easing: "ease-out",
+							fill: "forwards",
+							delay: index * 200 // stagger effect
+							}
+						);
+
+						// Stop observing this element
+						obs.unobserve(entry.target);
+						}
+					});
+					}, {
+					threshold: 0.15
+					});
+
+					// Observe each section
+					sections.forEach(sec => observer.observe(sec));
 					</script>
+
 				<!-- Footer -->
 					<footer id="footer">
 						<!-- <section>
