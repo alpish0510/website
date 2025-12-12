@@ -74,68 +74,74 @@
 									<li><a href="#" class="button large" id="showResearch">My Research</a></li>
 								</ul>
 
-								<div id="researchText" style="display:none; margin-top:20px;">
+								<div id="researchText" style="overflow:hidden; height:0; opacity:0;">
 									<p>
-										Your expanded research text goes here...
+										Your expanded research text goes here. You can put as much text as you want here and it will smoothly expand.
 									</p>
 								</div>
 
+
 								<script>
-									const btn = document.getElementById("showResearch");
-									const box = document.getElementById("researchText");
+								const btn = document.getElementById("showResearch");
+								const box = document.getElementById("researchText");
 
-									let isOpen = false;
+								let isOpen = false;
 
-									btn.addEventListener("click", function(e){
-										e.preventDefault();
+								btn.addEventListener("click", function(e) {
+									e.preventDefault();
 
-										if (!isOpen) {
-											// Expand
-											let targetHeight = box.scrollHeight;
-											let currentHeight = 0;
-											let currentOpacity = 0;
+									let targetHeight = box.scrollHeight; // total height of content
 
-											function expand() {
-												currentHeight += 10;       // speed: adjust as needed
-												currentOpacity += 0.02;
+									if (!isOpen) {
+										// Expand
+										let currentHeight = 0;
+										let currentOpacity = 0;
 
-												box.style.height = currentHeight + "px";
-												box.style.opacity = currentOpacity;
+										function expand() {
+											currentHeight += 20;       // adjust speed
+											currentOpacity += 0.04;    // adjust fade speed
 
-												if (currentHeight < targetHeight) {
-													requestAnimationFrame(expand);
-												} else {
-													box.style.height = "auto"; // allow resizing naturally
-												}
+											if (currentHeight > targetHeight) currentHeight = targetHeight;
+											if (currentOpacity > 1) currentOpacity = 1;
+
+											box.style.height = currentHeight + "px";
+											box.style.opacity = currentOpacity;
+
+											if (currentHeight < targetHeight) {
+												requestAnimationFrame(expand);
+											} else {
+												box.style.height = "auto"; // let it resize naturally
 											}
-
-											expand();
-										} else {
-											// Collapse
-											let targetHeight = box.scrollHeight;
-											let currentHeight = targetHeight;
-											let currentOpacity = 1;
-
-											function collapse() {
-												currentHeight -= 10;
-												currentOpacity -= 0.02;
-
-												box.style.height = currentHeight + "px";
-												box.style.opacity = currentOpacity;
-
-												if (currentHeight > 0) {
-													requestAnimationFrame(collapse);
-												} else {
-													box.style.height = "0px";
-												}
-											}
-
-											collapse();
 										}
 
-										isOpen = !isOpen;
-									});
+										expand();
+									} else {
+										// Collapse
+										let currentHeight = box.scrollHeight;
+										let currentOpacity = 1;
+
+										function collapse() {
+											currentHeight -= 20;
+											currentOpacity -= 0.04;
+
+											if (currentHeight < 0) currentHeight = 0;
+											if (currentOpacity < 0) currentOpacity = 0;
+
+											box.style.height = currentHeight + "px";
+											box.style.opacity = currentOpacity;
+
+											if (currentHeight > 0) {
+												requestAnimationFrame(collapse);
+											}
+										}
+
+										collapse();
+									}
+
+									isOpen = !isOpen;
+								});
 								</script>
+
 
 							</article>
 
