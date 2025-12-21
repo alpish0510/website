@@ -216,7 +216,171 @@
 
 
 							</article>
+							<article class="post featured">
+								<header class="major">
+									<h2><a href="https://en.wikipedia.org/wiki/Cosmic_microwave_background" target="_blank" rel="noopener">The Cosmic Microwave Background </a></h2>
+									<a href="https://sci.esa.int/web/planck/-/60503-the-sky-as-seen-by-planck?utm_source=chatgpt.com" class="image main"><img src="images/Planck_CMB_pillars.jpg" alt="Image of the large-scale structure of the Universe generated using Chat GPT" /></a>
+									<p style="text-align: justify;">The Cosmic Microwave Background (CMB) is the faint afterglow of the 
+										Big Bang, filling the universe almost uniformly and 
+										observable in every direction. It was released about 
+										380,000 years after the Big Bang, when the universe 
+										cooled enough for protons and electrons to combine 
+										into neutral atoms, allowing light to travel freely 
+										for the first time. Tiny temperature fluctuations 
+										in the CMB, at the level of one part in 100,000, 
+										encode a wealth of information about the universe’s 
+										contents, geometry, and initial conditions. Precise 
+										measurements by missions such as Planck have made the 
+										CMB one of the strongest pillars of modern cosmology, 
+										providing tight constraints on parameters of the ΛCDM 
+										model and the origin of large-scale structure.</p>
+								</header>
+								
+								<ul class="actions special">
+									<li><a href="#" class="button large" id="showResearch">My Research</a></li>
+								</ul>
+							    
+								<div id="researchText" style="overflow:hidden; height:0; opacity:0; padding:10px;">
+									<div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+										
+										<!-- Left: Paper Title / Description -->
+										<div style="flex:1;">
+										<h3 style="margin:0; font-family:Arial, sans-serif; font-size:1.2em; color:#333;">
+											My First Lead-Author Paper: <span style="color:#0077cc;">"The SRG/eROSITA All-Sky Survey: A comprehensive X-ray analysis of the Hydra I galaxy cluster"</span>
+										</h3>
+										<p style="margin-top:5px; font-size:0.95em; line-height:1.4em; color:#555;">
+											In this work, we combined eROSITA and Chandra observations to map the intracluster medium (ICM) of Hydra I well beyond R500, 
+											providing the most detailed view of its structure to date. We find that the cluster core is relaxed and spherically symmetric, 
+											with weak shocks near NGC 3311 (M≈1.25−1.53) and multiple soft X-ray excesses in the outskirts (>3σ) that indicate active 
+											baryonic accretion. Surface brightness modeling using a modified β-model extends to 3R200, capturing the weak central cusp. 
+											Multiwavelength data from TGSS (radio), 2MASS (IR), and NED (optical) reveal correlations between X-ray features, non-thermal 
+											emission, and 2D galaxy distributions, highlighting a unique dynamical state and links to the surrounding large-scale structure. 
+											We also identify potential iron fronts at the edges of ram-pressure stripped halos and fossil radio emission, showing complex ICM 
+											interactions. The ICM average temperature (⟨T⟩ = 2.27 keV) and metallicity (⟨Z⟩=0.19 Z⊙) profiles match hydrodynamical simulations. 
+											Hydra I exhibits weak cool-core (WCC) properties, with a flat temperature plateau within R≈13.2′ 
+											and a central cooling time of ∼3.7−5.3 Gyr, suggesting the initiation of radiative cooling after its last major merger. 
+											Overall, this work significantly expands our understanding of low-temperature cluster thermodynamics, outskirts accretion, and the 
+											interplay of thermal and non-thermal components in galaxy clusters.
+										</p>
+										</div>
+										
+										<!-- Right: Screenshot -->
+										<div style="flex:1; text-align:right;">
+										<a href="https://arxiv.org/pdf/2512.00518" target="_blank" rel="noopener">
+											<img src="images/hydraIsc.png" alt="Paper Screenshot" 
+												style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+										</a>
+										</div>
+									</div>
+									<!-- Separator -->
+									<hr style="margin:40px 0; border:0; border-top:2px solid #eee;">
+									
+									<!-- Second Paper -->
+									<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;">
+										
+										<!-- Left: Paper Screenshot -->
+										<div style="flex:1; min-width:250px; text-align:left; margin-bottom:20px;">
+											<a href="https://www.aanda.org/articles/aa/pdf/2025/11/aa54295-25.pdf" target="_blank" rel="noopener noreferrer">
+												<img src="images/Fornaxsc.png" alt="Another Paper Screenshot" 
+													style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+											</a>
+										</div>
+										
+										<!-- Right: Paper Text -->
+										<div style="flex:1; min-width:250px; margin-bottom:20px;">
+											<h3 style="margin:0; font-family:Arial, sans-serif; font-size:1.2em; color:#333;">
+												My First Paper: <span style="color:#0077cc;">"The SRG/eROSITA all-sky survey: View of the Fornax galaxy cluster"</span>
+											</h3>
+											<p style="margin-top:10px; font-size:0.95em; line-height:1.4em; color:#555;">
+												Using five SRG/eROSITA all-sky surveys, we mapped the intracluster medium (ICM) of the 
+												Fornax cluster out to well beyond R100, revealing 
+												unprecedented large-scale X-ray structures. Within R500, 
+												known features like the spiral-shaped edge are 
+												confirmed, but no bow shock is observed as predicted 
+												by simulations. Beyond R500, we detect X-ray 
+												“fingers” and excesses, likely caused by past mergers 
+												or warm-hot gas infall along filaments. 
+												These X-ray features correlate with member galaxies, 
+												globular clusters, and ultra-compact dwarfs, 
+												supporting the filamentary accretion scenario. 
+												Remarkably, we also discover a low-surface-brightness 
+												X-ray bridge connecting to the Fornax A group, 
+												highlighting ongoing cluster growth along large-scale 
+												cosmic filaments.
+											</p>
+										</div>
+										
+									</div>
+								</div>
 
+								<script>
+								const btn = document.getElementById("showResearch");
+								const box = document.getElementById("researchText");
+
+								let isOpen = false;
+
+								btn.addEventListener("click", function(e) {
+									e.preventDefault();
+
+									const targetHeight = box.scrollHeight; // full content height
+									const duration = 500; // total animation duration in ms
+									const fps = 60; // frames per second
+									const step = targetHeight / (duration / (1000 / fps));
+
+									if (!isOpen) {
+										// Expand
+										let currentHeight = 0;
+										let startTime = null;
+
+										function expand(timestamp) {
+											if (!startTime) startTime = timestamp;
+											const elapsed = timestamp - startTime;
+
+											// Compute fraction of animation completed
+											let fraction = elapsed / duration;
+											if (fraction > 1) fraction = 1;
+
+											box.style.height = targetHeight * fraction + "px";
+											box.style.opacity = fraction;
+
+											if (fraction < 1) {
+												requestAnimationFrame(expand);
+											} else {
+												box.style.height = "auto"; // let it resize naturally
+											}
+										}
+
+										requestAnimationFrame(expand);
+									} else {
+										// Collapse
+										let startHeight = box.scrollHeight;
+										let startTime = null;
+
+										function collapse(timestamp) {
+											if (!startTime) startTime = timestamp;
+											const elapsed = timestamp - startTime;
+
+											let fraction = elapsed / duration;
+											if (fraction > 1) fraction = 1;
+
+											box.style.height = startHeight * (1 - fraction) + "px";
+											box.style.opacity = 1 - fraction;
+
+											if (fraction < 1) {
+												requestAnimationFrame(collapse);
+											}
+										}
+
+										requestAnimationFrame(collapse);
+									}
+
+									isOpen = !isOpen;
+								});
+								</script>
+
+
+
+							</article>	
 						<!-- Posts -->
 							<!-- <section class="posts">
 								<article>
