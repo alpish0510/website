@@ -17,52 +17,54 @@
 		<button id="musicBtn">▶ BGM</button>
 
 		<audio id="bgMusic" loop>
-		<source src="music/C418 - Wet Hands (Cover) [-KNglfziUtw].mp3" type="audio/mpeg">
+			<source src="music/C418 - Wet Hands (Cover) [-KNglfziUtw].mp3" type="audio/mpeg">
 		</audio>
 
 		<script>
-		const btn = document.getElementById("musicBtn");
-		const music = document.getElementById("bgMusic");
+			const btn = document.getElementById("musicBtn");
+			const music = document.getElementById("bgMusic");
 
-		// Base button style
-		btn.style.position = "fixed";
-		btn.style.top = "15px";
-		btn.style.left = "15px";
-		btn.style.zIndex = "1000";
-		btn.style.padding = "1px 8px";
-		btn.style.lineHeight = "0.4";
-		btn.style.background = "transparent";
-		btn.style.border = "1px solid rgba(255,255,255,0.8)";
-		btn.style.color = "#ffffff";                // 👈 force white
-		btn.style.fontSize = "14px";
-		btn.style.fontFamily = "Arial, sans-serif";
-		btn.style.cursor = "pointer";
-		btn.style.outline = "none";                 // remove focus ring
-		btn.style.webkitTapHighlightColor = "transparent";
+			// Base button style
+			btn.style.position = "fixed";
+			btn.style.top = "15px";
+			btn.style.left = "15px";
+			btn.style.zIndex = "9999";
+			btn.style.padding = "1px 8px";
+			btn.style.lineHeight = "0.4";
+			btn.style.background = "#171526";
+			btn.style.border = "1px solid rgba(255,255,255,0.8)";
+			btn.style.color = "#ffffff";                // 👈 force white
+			btn.style.fontSize = "14px";
+			btn.style.fontFamily = "Arial, sans-serif";
+			btn.style.cursor = "pointer";
+			btn.style.outline = "none";                 // remove focus ring
+			btn.style.webkitTapHighlightColor = "transparent";
+			btn.style.borderRadius = "5px";          // subtle rounded corners
+  			btn.style.transition = "background 0.3s"; // smooth hover effect
 
-		// Hover + focus (force white text)
-		btn.onmouseenter = () => {
-			btn.style.background = "rgba(255,255,255,0.1)";
-			btn.style.color = "#ffffff";
-		};
+			// Hover + focus (force white text)
+			btn.onmouseenter = () => {
+				btn.style.background = "rgba(255,255,255,0.1)";
+				btn.style.color = "#555";
+			};
 
-		btn.onmouseleave = () => {
-			btn.style.background = "transparent";
-			btn.style.color = "#ffffff";
-		};
+			btn.onmouseleave = () => {
+				btn.style.background = "#171526";
+				btn.style.color = "#ffffff";
+			};
 
-		btn.onfocus = () => {
-			btn.style.color = "#ffffff";
-		};
+			btn.onfocus = () => {
+				btn.style.color = "#ffffff";
+			};
 
-		// Toggle play / pause
-		btn.onclick = () => {
-			music.paused ? music.play() : music.pause();
-		};
+			// Toggle play / pause
+			btn.onclick = () => {
+				music.paused ? music.play() : music.pause();
+			};
 
-		// Sync icon with audio state
-		music.onplay = () => btn.textContent = "⏸ BGM";
-		music.onpause = () => btn.textContent = "▶ BGM";
+			// Sync icon with audio state
+			music.onplay = () => btn.textContent = "⏸ BGM";
+			music.onpause = () => btn.textContent = "▶ BGM";
 		</script>
 
 
